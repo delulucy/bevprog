@@ -1,5 +1,5 @@
 #include "../std_lib_facilities.h"
-int main()
+int main(){
 try {
           //1.cout << "Success!\n";
           //2.cout << "Success!\n";
@@ -38,4 +38,5 @@ catch (...) {
           cerr << "Oops: unknown exception!\n"; 
           keep_window_open();
           return 2;
+}
 }
