@@ -10,7 +10,7 @@ int main() {
 
 	cout << "Dear " << first_name << ",\n";
 
-	cout << "How are you? I am fine. I miss you.\n";
+	cout << "\tHow are you? I am fine. I miss you.\n";
 
 	cout << "Enter the name of another friend.\n";
 
