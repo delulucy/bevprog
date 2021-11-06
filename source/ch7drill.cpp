@@ -53,8 +53,10 @@ constexpr char name = 'a';
 constexpr char let = 'L';
 constexpr char result = '=';
 constexpr char power = 'p';
+constexpr char square_root = 's';
 const string declkey = "let"; //constexpr string since C++20 only
 const string powkey = "pow";
+const string sqrtkey = "sqrt";
 
 //function declarations
 double expression();
@@ -164,6 +166,11 @@ Token Token_stream::get()
 
 	char ch;
 	cin >> ch;
+	while(isspace(ch)){
+		if(ch =='\n')return Token(print);
+		cin >> ch;
+	 
+	}
 
 	switch (ch)
 	{
@@ -177,6 +184,7 @@ Token Token_stream::get()
 		case '/':
 		case '%':
 		case '=':
+		case ',':
 			return Token(ch);
 		case '.':
 		case '0': case '1': case '2': case '3': case '4':
@@ -197,6 +205,7 @@ Token Token_stream::get()
     			cin.putback(ch);
     			if (s == declkey) return Token{let};
     			if (s == powkey) return Token{power};
+    			if ( s == sqrtkey) return Token{square_root};
     			return Token{name,s};
     		}
     		error("Bad token");
@@ -295,6 +304,16 @@ double primary()
 			t = ts.get();
 			if(t.kind !=')') error("')' expected");
 			return pow_func(d,i);
+		}
+		case square_root:
+		{
+			t=ts.get();
+			if(t.kind != '(') error("'(' expected");
+			double d = expression();
+			if(d<0) error("You can't get the square root of a negative number");
+			t = ts.get();
+			if(t.kind != ')') error("')' expected");
+			return sqrt(d);
 		}
 		default:
 			error("primary expected");
