@@ -3,6 +3,9 @@
 	Written by Renátó Besenczi based on the book BS, "Programming: Principles and Practice using C++, Second Edition"
 	See chapter 6 and chapter 7 of book: https://stroustrup.com/programming.html
 	© 2020 Renátó Besenczi, according to CC0. Questions: renato.besenczi@gmail.com
+	
+	Edited by Attila Kaponyás
+	Added POW and SQRT features
 
 	Input from cin; output to cout. Input comes from cin through the Token_stream called ts.
 
