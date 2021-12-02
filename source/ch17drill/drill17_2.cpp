@@ -57,10 +57,7 @@ int main(){
     	x*=2;
     }
 
-    vector<int> v2(10);
-    for(int i=0;i<v2.size();++i){
-    	v2[i]=v1[i];
-    }
+    vector<int> v2 = v1;
     
 
 	return 0;
